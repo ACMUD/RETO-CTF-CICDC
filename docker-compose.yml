@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  gitea:
+    image: gitea/gitea:latest
+    ports:
+      - "3800:3000"
+      - "222:22"
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__server__DISABLE_REGISTRATION=true
+      - GITEA__security__INSTALL_LOCK=true
+      - GITEA__security__SECRET_KEY=010230050
+      - GITEA__database__DB_TYPE=sqlite3
+      - GITEA__database__PATH=/data/gitea/gitea.db
+      - GITEA__service__DEFAULT_KEEP_EMAIL_PRIVATE=true
+      - GITEA__service__DEFAULT_ALLOW_CREATE_ORGANIZATION=true
+      - GITEA__admin__USERNAME=admin
+      - GITEA__admin__PASSWORD=ianciis4e2n6k1d2kk7aplw123
+      - GITEA__admin__EMAIL=admin@gitea.local
+    volumes:
+      - ./gitea:/data
+      - ./gitea-config:/etc/gitea
+    networks:
+      - gitea
+  cicdc:
+    build: .
+    networks:
+      - cidc
+      - gitea
+
+networks:
+  cidc:
+    driver: bridge
+  gitea:
+    driver: bridge

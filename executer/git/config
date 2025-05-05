@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = http://gisac_deploy:8b8aca24737e7ea71f27cdedd735ab50a3db868b@localhost:3800/gisac_deploy/ejecutor.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
