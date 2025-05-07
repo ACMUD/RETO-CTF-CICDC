@@ -26,6 +26,8 @@ services:
       - gitea
   cicdc:
     build: .
+    ports:
+      - "2222:22"
     networks:
       - cidc
       - gitea
