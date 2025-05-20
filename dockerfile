@@ -16,8 +16,9 @@ COPY ./.watching ./.watching
 COPY ./executer ./executer
 COPY ./start.sh .
 COPY ./setup.py .
-COPY ./flag .
 
+COPY ./flag /root/flag 
+RUN chmod 700 /root/flag
 RUN mv ./executer/git ./executer/.git
 RUN mv ./.watching/git ./.watching/.git
 

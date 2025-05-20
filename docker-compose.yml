@@ -19,9 +19,6 @@ services:
       - GITEA__admin__USERNAME=admin
       - GITEA__admin__PASSWORD=ianciis4e2n6k1d2kk7aplw123
       - GITEA__admin__EMAIL=admin@gitea.local
-    volumes:
-      - ./gitea:/data
-      - ./gitea-config:/etc/gitea
     networks:
       - gitea
   cicdc:
