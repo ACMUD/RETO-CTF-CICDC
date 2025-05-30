@@ -87,7 +87,7 @@ def create_token(user, passwd):
     return token
 
 user = "gisac_deploy"
-passwd = '12345678'
+passwd = '52aa1dc095038e8b'
 
 create_user(user, passwd)
 backup_repo = create_repo("backup_gen", user, passwd)

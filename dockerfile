@@ -3,7 +3,7 @@ FROM python:3.12-bookworm
 WORKDIR /app
 
 RUN apt-get update
-RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server ncat
 
 RUN mkdir /home/dev
 RUN useradd -m -d /home/dev -s /bin/bash dev

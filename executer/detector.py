@@ -50,7 +50,11 @@ def main():
                     pass  # Process already terminated
 
             # Start the new process
-            process = subprocess.Popen(["python3", ".watching/main.py", ".watching/"], preexec_fn=os.setsid)
+            try:
+                process = subprocess.Popen(["python3", ".watching/main.py", ".watching/"], preexec_fn=os.setsid)
+            except Exception as e:
+                open("/error.txt", "w").write(str(e))
+                print(f"Error starting process: {e}")
             with open(pid_file, "w") as f:
                 f.write(str(process.pid))
 

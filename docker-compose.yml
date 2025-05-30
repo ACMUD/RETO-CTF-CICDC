@@ -3,6 +3,11 @@ version: "3"
 services:
   gitea:
     image: gitea/gitea:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 2g
     ports:
       - "3800:3000"
       - "222:22"
@@ -23,6 +28,11 @@ services:
       - gitea
   cicdc:
     build: .
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 1g
     ports:
       - "2222:22"
     networks:
